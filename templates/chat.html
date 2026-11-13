@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chat do Chamado</title>
+    <!-- Importa o CSS e o Script de Modo Escuro -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Chat Privado (Chamado #{{ id_chamado }})</h1>
+    
+    <!-- Caixa onde as mensagens aparecem -->
+    <div style="border:1px solid var(--border-color); padding:15px; height:300px; overflow-y:scroll; margin-bottom:15px; background-color: var(--card-bg); border-radius:6px;">
+        
+        <!-- Loop que passa por todas as mensagens do banco -->
+        {% for msg in mensagens %}
+            <p>
+                <!-- Se for você, escreve a tag com cor azul. Se for o outro, escreve com a cor roxa/primária -->
+                {% if msg.id_remetente == id_logado %}
+                    <strong style="color: blue;">{{ msg.nome }}:</strong>
+                {% else %}
+                    <strong style="color: var(--primary-color);">{{ msg.nome }}:</strong>
+                {% endif %}
+                
+                {{ msg.texto }} 
+                <span style="font-size:10px; color:var(--text-muted);">({{ msg.data_envio }})</span>
+            </p>
+        {% else %}
+            <p style="color:var(--text-muted); text-align:center;">Nenhuma mensagem ainda. Envie um "Olá" para começar!</p>
+        {% endfor %}
+    </div>
+    
+    <!-- Formulário para digitar e enviar uma nova mensagem -->
+    <form action="/chat/{{ id_chamado }}" method="POST">
+        <input type="text" name="mensagem" placeholder="Digite sua mensagem aqui..." required style="width: 80%; display:inline-block; margin-right: 10px;">
+        <button type="submit">Enviar</button>
+    </form>
+    
+    <br>
+    <a href="/dashboard">Voltar ao Painel</a>
+</body>
+</html>

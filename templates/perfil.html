@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil - {{ u.nome }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Perfil do Usuário</h1>
+    
+    <!-- Mostra os dados básicos salvos no banco -->
+    <p><strong>Nome:</strong> {{ u.nome }}</p>
+    <p><strong>Tipo de Conta:</strong> {{ u.tipo }}</p>
+    
+    <!-- Se o perfil for de um técnico, exibe as estatísticas e datas acadêmicas -->
+    {% if u.tipo == 'tecnico' %}
+        <p><strong>Início do Curso:</strong> {{ u.inicio_curso }}</p>
+        <p><strong>Previsão de Término:</strong> {{ u.previsao_termino }}</p>
+        
+        <h3>Estatísticas de Trabalho:</h3>
+        <ul>
+            <li>Chamados Concluídos: <strong>{{ estatisticas[0] }}</strong></li>
+            <li>Chamados em Andamento: <strong>{{ estatisticas[1] }}</strong></li>
+        </ul>
+    {% endif %}
+    
+    <br>
+    <!-- O javascript:history.back() faz o navegador voltar para a página anterior (Index ou Mural) -->
+    <button onclick="javascript:history.back()">Voltar</button>
+</body>
+</html>

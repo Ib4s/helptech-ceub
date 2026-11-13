@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HelpTech CEUB - Início</title>
+    <!-- Importa o CSS e o Script de Modo Escuro -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    
+    <!-- Cabeçalho (Estilo portal CEUB) -->
+    <div style="margin-bottom: 30px;">
+        <h1 style="margin-bottom: 5px; font-weight: 300; border-bottom: none;">Olá, Bem-vindo ao HelpTech CEUB!</h1>
+        <strong style="color: var(--text-muted); font-size: 14px;">Home</strong>
+    </div>
+
+    <!-- Container Estilo Timeline -->
+    <div style="background-color: var(--card-bg); border: 1px solid var(--border-color); border-top: 4px solid var(--primary-color); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 30px; max-width: 900px;">
+        
+        <!-- Cabeçalho do Card -->
+        <div style="padding: 15px 20px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 10px;">
+            <span style="color: var(--primary-color); font-size: 20px;">⚙️</span>
+            <strong style="letter-spacing: 1px; font-size: 14px;">COMO FUNCIONA & REGRAS</strong>
+        </div>
+
+        <!-- Item 1: Cliente -->
+        <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; flex-wrap: wrap;">
+            <div style="width: 160px; color: var(--text-muted); font-size: 14px; margin-bottom: 5px;">
+                Diretrizes
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <strong style="display: block; margin-bottom: 5px; color: var(--text-main);">Perfil Cliente (Solicitante)</strong>
+                <span style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Crie chamados descrevendo o seu problema (ex: computador lento, vírus, formatação, instalação de programas). Um técnico vai aceitar seu chamado e vocês combinam os detalhes pelo Chat.</span>
+            </div>
+        </div>
+
+        <!-- Item 2: Técnico -->
+        <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; flex-wrap: wrap;">
+            <div style="width: 160px; color: var(--text-muted); font-size: 14px; margin-bottom: 5px;">
+                Diretrizes
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <strong style="display: block; margin-bottom: 5px; color: var(--text-main);">Perfil Técnico (Suporte)</strong>
+                <span style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Acesse o Mural de Oportunidades, escolha os chamados que você sabe resolver, ganhe experiência prática e construa seu portfólio dentro da faculdade.</span>
+            </div>
+        </div>
+
+        <!-- Item 3: Segurança -->
+        <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; flex-wrap: wrap;">
+            <div style="width: 160px; color: var(--text-muted); font-size: 14px; margin-bottom: 5px;">
+                Regras
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <strong style="display: block; margin-bottom: 5px; color: var(--text-main);">Privacidade e Segurança</strong>
+                <span style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Trate todos os colegas com respeito. Nunca compartilhe senhas bancárias ou dados pessoais sensíveis nos chamados. O HelpTech não se responsabiliza por dados perdidos.</span>
+            </div>
+        </div>
+
+        <!-- Item 4: Cobrança -->
+        <div style="padding: 20px; display: flex; flex-wrap: wrap;">
+            <div style="width: 160px; color: var(--text-muted); font-size: 14px; margin-bottom: 5px;">
+                Regras
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <strong style="display: block; margin-bottom: 5px; color: var(--text-main);">Gratuidade vs. Cobrança</strong>
+                <span style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">A plataforma é feita para ajuda colaborativa, mas manutenções complexas que exijam compra de peças devem ser combinadas e acordadas previamente no chat privado.</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Botões de navegação para Login ou Cadastro (Na parte de baixo, bem seguros) -->
+    <div>
+        <a href="/login"><button style="margin-right: 10px;">Fazer Login</button></a>
+        <a href="/cadastro"><button style="background-color: var(--text-muted);">Criar uma Conta</button></a>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HelpTech CEUB - Mural</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Olá, {{ nome }}! (Área do Técnico)</h1>
+    
+    <!-- Seção 1: Lista todos os chamados que estão sem técnico ainda -->
+    <h2>Mural de Oportunidades (Chamados Abertos)</h2>
+    <ul>
+        {% for c in chamados %}
+            <li>
+                <strong>{{ c.titulo }}</strong><br>
+                Descrição: {{ c.descricao }}<br>
+                <!-- Botão para o técnico se candidatar à vaga -->
+                <form action="/candidatar/{{ c.id }}" method="POST" style="margin-top:10px;">
+                    <button type="submit">Me Candidatar</button>
+                </form>
+            </li>
+        {% else %}
+            <p>Nenhum chamado aberto no momento.</p>
+        {% endfor %}
+    </ul>
+    
+    <hr>
+    
+    <!-- Seção 2: Lista os chamados que o cliente aprovou para este técnico -->
+    <h2>Meus Trabalhos em Andamento / Concluídos</h2>
+    <ul>
+        {% for m in meus_trabalhos %}
+            <li>
+                <strong>{{ m.titulo }}</strong> - Status: {{ m.status }}<br>
+                Descrição: {{ m.descricao }}<br>
+                <!-- Se estiver em andamento, libera o botão do chat -->
+                {% if m.status == 'Em Andamento' %}
+                    <a href="/chat/{{ m.id }}"><button style="background-color:green; color:white;">Abrir Chat com Cliente</button></a>
+                {% endif %}
+            </li>
+        {% else %}
+            <p>Você ainda não tem trabalhos vinculados.</p>
+        {% endfor %}
+    </ul>
+
+    <br><a href="/logout"><button>Sair da Conta</button></a>
+</body>
+</html>

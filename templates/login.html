@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login - HelpTech CEUB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Login</h1>
+    
+    <!-- Formulário que envia os dados para a rota /login no app.py -->
+    <form action="/login" method="POST">
+        Matrícula: <input type="text" name="matricula" required><br><br>
+        Senha: <input type="password" name="senha" required><br><br>
+        <button type="submit">Entrar</button>
+    </form>
+    
+    <br>
+    <a href="/">Voltar para Início</a>
+</body>
+</html>
